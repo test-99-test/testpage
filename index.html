@@ -241,7 +241,7 @@
       justify-content: space-around;
       align-items: flex-end; /* 下揃えでバーを表示 */
       height: 300px;
-      padding: 20px 10px 30px;
+      padding: 20px 10px 45px; /* 下部のパディングを増やして、ラベルのためのスペースを確保 */
       background: rgba(255, 255, 255, 0.05); /* 薄い背景 */
       border-radius: 10px;
       border-bottom: 2px solid rgba(255, 255, 255, 0.1); /* 下部の境界線 */
@@ -448,14 +448,14 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 1), 0 0 3px rgba(0, 0, 0, 0.8); /* 二重の影効果 */
       letter-spacing: 0.3px;
       position: absolute;
-      bottom: -35px; /* グラフの下に配置 */
+      bottom: -38px; /* グラフの下に配置をさらに下げる */
       width: 100%;
       transform: rotate(-45deg); /* 斜めに表示 */
       white-space: nowrap; /* 改行させない */
       transform-origin: left center; /* 回転の基準点 */
       left: 50%;
       margin-left: -5px;
-      z-index: 20; /* より高い値で最前面に表示 */
+      z-index: 30; /* より高い値で最前面に表示 */
       background: rgba(0, 0, 0, 0.7); /* 背景を濃くして視認性向上 */
       padding: 2px 8px;
       border-radius: 4px;
@@ -518,7 +518,7 @@
         /* グラフエリアの高さ調整 */
         .chart-grid {
           height: 240px;
-          padding: 20px 5px 40px; /* パディングを調整して下部に余裕を持たせる */
+          padding: 20px 5px 55px; /* パディングを増やして下部に余裕を持たせる */
         }
         
         /* 各棒の幅を最適化 */
@@ -542,21 +542,21 @@
         /* ラベル調整 - 重なりを防ぐための調整 */
         .chart-label {
           font-size: 0.7rem;
-          bottom: -36px; /* さらに下に配置して重なりを防止 */
+          bottom: -45px; /* さらに下に配置して重なりを防止 */
           left: 25%; /* 位置調整 */
           padding: 1px 3px; /* パディングをより小さく */
           transform: rotate(-35deg); /* 回転角度を調整 */
           white-space: nowrap;
           width: auto; /* 幅を内容に合わせる */
           max-width: 100px; /* 最大幅を設定 */
-          z-index: 50 !important; /* スマホ表示ではさらに高い優先度で表示 */
+          z-index: 100 !important; /* スマホ表示ではさらに高い優先度で表示 */
           background: rgba(0, 0, 0, 0.85); /* 背景をさらに濃くして視認性向上 */
         }
         
         /* 凡例のフォントサイズ調整 */
         .chart-legend p {
           font-size: 0.85rem;
-          margin-top: 30px; /* ラベルとの間隔を確保 */
+          margin-top: 40px; /* ラベルとの間隔を確保 */
         }
         
         /* Achievementsセクションの調整 */
@@ -661,19 +661,6 @@
       <section id="about">
         <h2>About Us</h2>
         <p>進化し続けるテクノロジーのサイクルにおいて、役目を終えた半導体製造装置。私たちTSC株式会社は、その解体・撤去を通じて、新たな価値を創造します。熟練の技術者たちが、精密機械の構造を熟知し、高度な解体技術と安全管理体制で、あらゆる現場に対応。単なる解体ではなく、資源の有効活用、環境負荷の低減をも視野に入れた、責任ある解体業務をご提供します。</p>
-        <p><a href="pages/about.html" class="btn">詳しく見る</a></p>
-      </section>
-
-      <section id="company">
-        <h2>Company</h2>
-        <ul>
-          <li>会社名: TSC株式会社</li>
-          <li>所在地: 〒512-8047 三重県四日市市八千代台1-290</li>
-          <li>代表者: 浜口 敬 (hamaguchi.kei)</li>
-          <li>設立日: 2024.5</li>
-          <li>資本金: 1,000,000円</li>
-          <li>お問い合わせ先: <a href="mailto:contact@tsc.com">contact@tsc.com</a></li>
-        </ul>
       </section>
 
       <section id="services">
@@ -684,7 +671,6 @@
           <li>搬送治具制作・加工</li>
           <li>技術支援業務（ロボットティーチング等）</li>
         </ul>
-        <p><a href="pages/services.html" class="btn">詳しく見る</a></p>
       </section>
 
       <section id="achievements">
@@ -746,15 +732,26 @@
           
           <!-- 実績の詳細リスト -->
           <div class="achievements-details">
-            <ul>
-              <li>AMAT装置無害化作業 12台 (Vantage, Centris, Centura)</li>
-              <li>AMAT装置解体作業 10台 (Vantage, Centris)</li>
-              <li>TEL装置無害化作業 8台 (ACT12, Lithius, Lithius Pro)</li>
-              <li>TEL装置解体作業 10台 (ACT12, Lithius, Lithius Pro)</li>
+        <ul>
+          <li>AMAT装置無害化作業 12台 (Vantage, Centris, Centura)</li>
+          <li>AMAT装置解体作業 10台 (Vantage, Centris)</li>
+          <li>TEL装置無害化作業 8台 (ACT12, Lithius, Lithius Pro)</li>
+          <li>TEL装置解体作業 10台 (ACT12, Lithius, Lithius Pro)</li>
               <li>SCREEN装置解体作業 5台</li>
-            </ul>
+        </ul>
           </div>
         </div>
+      </section>
+
+      <section id="company">
+        <h2>Company</h2>
+        <ul>
+          <li>会社名: TSC株式会社</li>
+          <li>所在地: 〒512-8047 三重県四日市市八千代台1-290</li>
+          <li>代表者: 浜口 敬 (hamaguchi.kei)</li>
+          <li>設立日: 2024.5</li>
+          <li>資本金: 1,000,000円</li>
+        </ul>
       </section>
 
       <section id="contact">
@@ -853,7 +850,7 @@
       // 自動スライドショーの停止
       function stopSlideShow() {
         if (slideInterval) {
-          clearInterval(slideInterval);
+        clearInterval(slideInterval);
         }
       }
 
