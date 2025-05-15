@@ -217,6 +217,7 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 影効果 */
       backdrop-filter: blur(10px); /* 背景のぼかし効果 */
       border: 1px solid rgba(255, 255, 255, 0.1); /* 薄い境界線 */
+      position: relative; /* 位置の基準点として設定 */
     }
     
     /* グラフタイトルのスタイル */
@@ -298,7 +299,7 @@
       transition: all 0.5s ease; /* アニメーション用のトランジション */
       animation: growUp 1.8s ease-out forwards; /* 成長アニメーション */
       transform-origin: bottom; /* アニメーションの起点を下部に */
-      z-index: 1;
+      z-index: 1; /* 背面表示に設定（棒グラフを背面に） */
       border: 1px solid rgba(255, 255, 255, 0.3); /* 薄い境界線 */
       border-bottom: none; /* 下部の境界線はなし */
       overflow: hidden;
@@ -469,12 +470,13 @@
       transform-origin: left center; /* 回転の基準点 */
       left: 50%;
       margin-left: -5px;
-      z-index: 10; /* 最前面に表示 */
-      background: rgba(0, 0, 0, 0.5); /* 半透明の背景 */
+      z-index: 20; /* より高い値で最前面に表示 */
+      background: rgba(0, 0, 0, 0.7); /* 背景を濃くして視認性向上 */
       padding: 2px 8px;
       border-radius: 4px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* ラベルの影 */
-      backdrop-filter: blur(2px); /* 背景をぼかす */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7), 0 0 5px rgba(255, 255, 255, 0.1); /* ラベルの影強化 */
+      backdrop-filter: blur(3px); /* 背景のぼかし強化 */
+      border: 1px solid rgba(255, 255, 255, 0.1); /* 境界線追加 */
     }
     
     /* ラベルの下線装飾 */
@@ -555,13 +557,15 @@
         /* ラベル調整 - 重なりを防ぐための調整 */
         .chart-label {
           font-size: 0.7rem;
-          bottom: -34px; /* より下に配置して重なりを防止 */
-          left: 30%; /* 位置調整 */
+          bottom: -36px; /* さらに下に配置して重なりを防止 */
+          left: 25%; /* 位置調整 */
           padding: 1px 3px; /* パディングをより小さく */
-          transform: rotate(-40deg); /* 回転角度を調整 */
+          transform: rotate(-35deg); /* 回転角度を調整 */
           white-space: nowrap;
           width: auto; /* 幅を内容に合わせる */
           max-width: 100px; /* 最大幅を設定 */
+          z-index: 50 !important; /* スマホ表示ではさらに高い優先度で表示 */
+          background: rgba(0, 0, 0, 0.85); /* 背景をさらに濃くして視認性向上 */
         }
         
         /* 凡例のフォントサイズ調整 */
@@ -627,7 +631,7 @@
           animation: pulse-overlay 8s infinite alternate ease-in-out;"></div>
         
         <div class="slide-content" style="position: relative; z-index: 5;">
-          <h2 style="font-size: 3.2rem; font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.8);">
+          <h2 style="font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; text-shadow: 0 5px 15px rgba(0,0,0,0.8); line-height: 1.3;">
             テクノロジーの進化を支える、<br><span style="color: #ff7a45; display: inline-block; transform: translateY(5px);">解体と創造のプロフェッショナル</span>
           </h2>
           <p style="font-size: 1.4rem; max-width: 600px; margin: 0 auto; text-shadow: 0 2px 10px rgba(0,0,0,0.9);">半導体製造装置の解体・撤去を通じて、<br>新たな価値を創造します。</p>
